@@ -12,7 +12,7 @@ export const siteConfig = {
     { label: "LinkedIn", href: "[YOUR LINKEDIN URL]" },
     { label: "Other social profile", href: "[YOUR SOCIAL LINKS]" },
   ],
-  profilePhoto: "[PHOTO FILE OR URL]",
+  profilePhoto: "/profile-reeon-professional.png",
   colors: {
     transparentYellow: "#F3E85C",
     sceptreRed: "#A92E3E",

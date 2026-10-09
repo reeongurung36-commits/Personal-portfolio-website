@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { BarChart3, Bot, Target } from "lucide-react";
 import { isConfigured, siteConfig } from "@/lib/site-config";
 
 export function ProfileVisual({ compact = false }: { compact?: boolean }) {
@@ -16,9 +15,6 @@ export function ProfileVisual({ compact = false }: { compact?: boolean }) {
           </div>
         )}
       </div>
-      <div className="floating-card card-one"><Target size={19} /><span><b>Clear strategy</b><small>Built for your goals</small></span></div>
-      <div className="floating-card card-two"><Bot size={19} /><span><b>Practical AI</b><small>Tools that earn their place</small></span></div>
-      {!compact && <div className="floating-card card-three"><BarChart3 size={19} /><span><b>Measurable progress</b><small>Learn, refine, improve</small></span></div>}
     </div>
   );
 }

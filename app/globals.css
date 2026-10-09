@@ -98,22 +98,11 @@ p { color: var(--ink-soft); font-family: var(--font-paladio), Palatino, Georgia,
 .hero-note span { font-family: var(--font-blush), cursive; color: var(--sceptre-red); font-size: 1.8rem; }
 .hero-note p { margin: 0; font-size: .87rem; }
 
-.profile-visual { position: relative; align-self: end; min-height: 620px; padding-top: 20px; animation: reveal-soft 1s .16s cubic-bezier(.22,1,.36,1) both; }
+.profile-visual { position: relative; align-self: end; min-height: 620px; padding-top: 20px; }
 .portrait-frame { position: absolute; right: 4%; bottom: 0; width: 86%; height: 93%; border-radius: 240px 240px 22px 22px; background: linear-gradient(155deg, var(--cerulean-blue), #d6e9f1 54%, var(--transparent-yellow)); overflow: hidden; box-shadow: var(--shadow); }
-.portrait-frame::after { content: ""; position: absolute; inset: 24px; border: 1px solid rgba(255,255,255,.55); border-radius: inherit; pointer-events: none; }
 .portrait-image { object-fit: cover; }
 .portrait-placeholder { display: flex; height: 100%; align-items: center; justify-content: center; flex-direction: column; gap: 14px; color: #67584c; font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .portrait-monogram { display: grid; place-items: center; width: 150px; height: 150px; border: 2px solid rgba(53,40,33,.25); border-radius: 50%; font-family: var(--font-elegant), Georgia, serif; font-size: 3.8rem; font-weight: 600; letter-spacing: -.08em; }
-.floating-card { position: absolute; z-index: 3; display: flex; align-items: center; gap: 11px; min-width: 190px; padding: 14px 16px; border: 1px solid rgba(90,68,54,.15); border-radius: 15px; background: rgba(252,250,247,.94); box-shadow: 0 15px 40px rgba(90,68,54,.14); backdrop-filter: blur(10px); animation: float-soft 5.5s ease-in-out infinite; }
-.floating-card:nth-of-type(2) svg { color: var(--sceptre-red); }
-.floating-card:nth-of-type(3) svg { color: var(--cerulean-blue); }
-.floating-card:nth-of-type(4) svg { color: var(--potting-soil); }
-.floating-card b, .floating-card small { display: block; line-height: 1.35; }
-.floating-card b { font-size: .77rem; }
-.floating-card small { color: var(--muted); font-size: .65rem; }
-.card-one { left: -3%; top: 25%; }
-.card-two { right: -3%; top: 51%; animation-delay: -1.8s; }
-.card-three { left: 2%; bottom: 7%; animation-delay: -3.6s; }
 .profile-visual.compact { min-height: 540px; }
 .profile-visual.compact .portrait-frame { width: 92%; right: 8%; }
 
@@ -372,8 +361,6 @@ p { color: var(--ink-soft); font-family: var(--font-paladio), Palatino, Georgia,
 
 @keyframes spin { to { transform: rotate(360deg); } }
 @keyframes reveal-up { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes reveal-soft { from { opacity: 0; transform: translateY(18px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
-@keyframes float-soft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
 @keyframes ambient-ring { from { transform: scale(.96) rotate(-3deg); opacity: .55; } to { transform: scale(1.07) rotate(5deg); opacity: 1; } }
 @keyframes ambient-drift { from { transform: translate3d(0,0,0); } to { transform: translate3d(-24px,18px,0); } }
 
@@ -452,8 +439,6 @@ p { color: var(--ink-soft); font-family: var(--font-paladio), Palatino, Georgia,
   .profile-visual { min-height: 475px; }
   .portrait-frame { width: 94%; right: 3%; }
   .portrait-monogram { width: 120px; height: 120px; font-size: 3rem; }
-  .floating-card { min-width: 165px; padding: 11px 12px; }
-  .card-one { left: 0; top: 18%; }.card-two { right: 0; top: 54%; }.card-three { display: none; }
   .challenge-grid, .benefit-grid, .values-grid { grid-template-columns: 1fr; }
   .challenge-card { min-height: 145px; }
   .challenge-card svg { margin-bottom: 20px; }
