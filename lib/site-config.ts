@@ -1,7 +1,8 @@
 export const siteConfig = {
-  name: "[YOUR NAME]",
-  brandName: "[YOUR BRAND NAME]",
-  shortBrand: "AI Growth Studio",
+  name: "Reeon Gurung",
+  brandName: "REEON GURUNG",
+  shortBrand: "REEON GURUNG",
+  brandStatement: "Where AI, creativity, and strategy come together to build what’s next.",
   location: "[YOUR LOCATION / REMOTE]",
   email: "[YOUR BUSINESS EMAIL]",
   phone: "[YOUR PHONE NUMBER, OPTIONAL]",
@@ -13,10 +14,10 @@ export const siteConfig = {
   ],
   profilePhoto: "[PHOTO FILE OR URL]",
   colors: {
-    ink: "#10221d",
-    accent: "#e7683f",
-    sage: "#dce8df",
-    cream: "#f7f3eb",
+    ink: "#242321",
+    accent: "#A78B73",
+    sage: "#DDD3C5",
+    cream: "#F7F4EF",
   },
   siteUrl: "https://ai-marketing-growth-20261009.amusedflute.chatgpt.site",
   consultationOffer:

@@ -54,3 +54,6 @@ next-env.d.ts
 /.codex/
 /outputs/
 /work/
+
+# Local deployment packages are generated artifacts, not source.
+/.openai/*.tar.gz

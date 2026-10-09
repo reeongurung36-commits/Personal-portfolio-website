@@ -15,7 +15,7 @@ export function SiteHeader() {
       <div className="container header-inner">
         <Link href="/" className="brand" aria-label="Go to homepage" onClick={() => setOpen(false)}>
           <span className="brand-mark" aria-hidden="true"><Sparkles size={18} /></span>
-          <span><b>{siteConfig.shortBrand}</b><small>AI marketing, made practical</small></span>
+          <span className="brand-copy"><b>{siteConfig.shortBrand}</b><small>{siteConfig.brandStatement}</small></span>
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navigation.map((item) => (

@@ -10,9 +10,9 @@ const newsreader = Newsreader({ subsets: ["latin"], variable: "--font-newsreader
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
-  title: { default: "AI-Powered Digital Marketing for Growing Businesses", template: `%s | ${siteConfig.shortBrand}` },
+  title: { default: `${siteConfig.shortBrand} | AI-Powered Digital Marketing`, template: `%s | ${siteConfig.shortBrand}` },
   description: "Practical AI-powered digital marketing strategy, implementation, and optimization for small and medium-sized businesses.",
-  openGraph: { title: "Grow Your Business with AI-Powered Digital Marketing", description: "A practical, personalized approach to better visibility, qualified leads, and more effective marketing workflows.", type: "website", url: siteConfig.siteUrl, siteName: siteConfig.shortBrand },
+  openGraph: { title: `${siteConfig.shortBrand} | AI-Powered Digital Marketing`, description: "A practical, personalized approach to better visibility, qualified leads, and more effective marketing workflows.", type: "website", url: siteConfig.siteUrl, siteName: siteConfig.shortBrand },
   twitter: { card: "summary_large_image" },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };

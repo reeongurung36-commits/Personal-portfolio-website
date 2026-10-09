@@ -10,7 +10,7 @@ export function SiteFooter() {
         <div>
           <Link href="/" className="brand footer-brand">
             <span className="brand-mark" aria-hidden="true"><Sparkles size={18} /></span>
-            <span><b>{siteConfig.shortBrand}</b><small>Smarter systems. Human strategy.</small></span>
+            <span className="brand-copy"><b>{siteConfig.shortBrand}</b><small>{siteConfig.brandStatement}</small></span>
           </Link>
           <p className="footer-copy">Practical AI-powered marketing for small and medium-sized businesses ready to grow with greater clarity.</p>
         </div>
