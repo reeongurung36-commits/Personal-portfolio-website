@@ -1,4 +1,4 @@
-# AI Marketing Consultant Portfolio
+# REEON GURUNG — AI Marketing Portfolio
 
 A responsive portfolio and lead-generation website built with Next.js-compatible Vinext, TypeScript, and CSS. It includes five main pages, a searchable blog, article routes, accessible navigation, SEO metadata, and a server-side contact handler.
 
@@ -31,6 +31,20 @@ Edit `lib/site-config.ts`. Every intentionally missing personal detail is kept t
 Placeholder values are deliberately visible in brackets so they cannot be mistaken for real credentials. When `bookingUrl` is still a placeholder, every consultation button safely routes to `/contact?intent=consultation`.
 
 Visual colors are implemented as CSS variables near the top of `app/globals.css`. Update those variables to apply a new palette consistently.
+
+## Typography and color direction
+
+The site uses licensed open web fonts in clearly named roles so the design remains reliable in every browser:
+
+- `Bodoni Moda` for the Grandeur-style editorial headings
+- `Allura` for the BLUSH-style handwritten accents
+- `Cinzel` for the Elegant-style REEON GURUNG wordmark
+- `Cormorant Garamond` for the Balance Paladio-style subtitle and descriptive copy
+- `Source Serif 4` for the Safira March / Source Serif-style navigation and interface text
+
+The exact commercial or ambiguously named font files were not bundled because no licensed files were supplied. To use exact versions later, add licensed `.woff2` files and update the font variables in `app/layout.tsx` and `app/globals.css`.
+
+The requested Pantone colors are represented as screen-ready sRGB approximations in both `lib/site-config.ts` and the CSS variables at the top of `app/globals.css`. Printed Pantone swatches and screen colors can differ by display and color profile.
 
 ## Update services
 

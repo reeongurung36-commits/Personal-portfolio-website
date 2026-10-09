@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import { Manrope, Newsreader } from "next/font/google";
+import { Allura, Bodoni_Moda, Cinzel, Cormorant_Garamond, Source_Serif_4 } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { isConfigured, siteConfig } from "@/lib/site-config";
 import "./globals.css";
 
-const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope", display: "swap" });
-const newsreader = Newsreader({ subsets: ["latin"], variable: "--font-newsreader", display: "swap" });
+const grandeur = Bodoni_Moda({ subsets: ["latin"], variable: "--font-grandeur", display: "swap" });
+const blush = Allura({ subsets: ["latin"], weight: "400", variable: "--font-blush", display: "swap" });
+const elegant = Cinzel({ subsets: ["latin"], variable: "--font-elegant", display: "swap" });
+const paladio = Cormorant_Garamond({ subsets: ["latin"], variable: "--font-paladio", display: "swap" });
+const safira = Source_Serif_4({ subsets: ["latin"], variable: "--font-safira", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -20,7 +23,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const serviceSchema = { "@context": "https://schema.org", "@type": "ProfessionalService", name: siteConfig.brandName, url: siteConfig.siteUrl, description: "AI-powered digital marketing services for small and medium-sized businesses." };
   return (
-    <html lang="en" className={`${manrope.variable} ${newsreader.variable}`}>
+    <html lang="en" className={`${grandeur.variable} ${blush.variable} ${elegant.variable} ${paladio.variable} ${safira.variable}`}>
       <body>
         <a className="skip-link" href="#main-content">Skip to main content</a>
         <SiteHeader />

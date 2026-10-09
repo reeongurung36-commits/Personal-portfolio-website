@@ -14,10 +14,11 @@ export const siteConfig = {
   ],
   profilePhoto: "[PHOTO FILE OR URL]",
   colors: {
-    ink: "#242321",
-    accent: "#A78B73",
-    sage: "#DDD3C5",
-    cream: "#F7F4EF",
+    transparentYellow: "#F3E85C",
+    sceptreRed: "#A92E3E",
+    ceruleanBlue: "#69A4CF",
+    pottingSoil: "#4C332B",
+    javaBrown: "#352821",
   },
   siteUrl: "https://ai-marketing-growth-20261009.amusedflute.chatgpt.site",
   consultationOffer:

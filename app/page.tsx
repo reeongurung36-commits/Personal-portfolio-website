@@ -27,8 +27,7 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow"><Sparkles size={16} /> AI marketing for practical growth</p>
-            <h1>Grow your business with <em>AI-powered</em> digital marketing.</h1>
+            <h1 className="hero-title"><span>Grow your business with</span> <em>AI-powered</em> <span>digital marketing.</span></h1>
             <p className="hero-intro">I help small and medium-sized businesses attract the right customers, generate qualified leads, and turn marketing activity into sales—with strategy and AI tools shaped around the way your business actually works.</p>
             <div className="button-row">
               <Link className="button" href={consultationHref()}>Book a Free Consultation <ArrowRight size={18} /></Link>

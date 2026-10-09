@@ -41,7 +41,7 @@ export function SiteHeader() {
       <div id="mobile-navigation" className={`mobile-nav ${open ? "is-open" : ""}`}>
         <nav className="container" aria-label="Mobile navigation">
           {navigation.map((item) => (
-            <Link key={item.href} href={item.href} aria-current={pathname === item.href ? "page" : undefined}>
+            <Link key={item.href} href={item.href} aria-current={pathname === item.href ? "page" : undefined} onClick={() => setOpen(false)}>
               {item.label}
             </Link>
           ))}

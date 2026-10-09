@@ -11,7 +11,7 @@ export function ProfileVisual({ compact = false }: { compact?: boolean }) {
           <Image src={siteConfig.profilePhoto} alt={`Portrait of ${siteConfig.name}`} fill sizes="(max-width: 768px) 90vw, 42vw" className="portrait-image" priority />
         ) : (
           <div className="portrait-placeholder" role="img" aria-label="Profile photo placeholder; update profilePhoto in the site configuration">
-            <span className="portrait-monogram">YN</span>
+            <span className="portrait-monogram">RG</span>
             <span>Add your profile photo</span>
           </div>
         )}
