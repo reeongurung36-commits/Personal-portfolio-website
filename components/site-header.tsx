@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Sparkles, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { consultationHref, navigation, siteConfig } from "@/lib/site-config";
 
@@ -14,8 +15,19 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="container header-inner">
         <Link href="/" className="brand" aria-label="Go to homepage" onClick={() => setOpen(false)}>
-          <span className="brand-mark" aria-hidden="true"><Sparkles size={18} /></span>
-          <span className="brand-copy"><b>{siteConfig.shortBrand}</b><small>{siteConfig.brandStatement}</small></span>
+          <span className="brand-copy">
+            <span className="brand-logo-wrap">
+              <Image
+                src="/reeon-gurung-logo-primary.png"
+                alt={siteConfig.shortBrand}
+                width={1831}
+                height={236}
+                className="brand-logo-image"
+                priority
+              />
+            </span>
+            <small>{siteConfig.brandStatement}</small>
+          </span>
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
           {navigation.map((item) => (
