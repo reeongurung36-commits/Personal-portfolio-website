@@ -1,14 +1,14 @@
 "use client";
 
-import { AlertCircle, CheckCircle2, LoaderCircle, Send } from "lucide-react";
+import { AlertCircle, LoaderCircle, Send } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { services } from "@/lib/content";
 import { isConfigured, siteConfig } from "@/lib/site-config";
 
-type Status = { type: "idle" | "sending" | "success" | "error"; message?: string };
+type Status = { type: "idle" | "sending" | "error"; message?: string };
 
 export function ContactForm() {
-  const [startedAt, setStartedAt] = useState<number | null>(null);
+  const [startedAt] = useState(() => Date.now());
   const [status, setStatus] = useState<Status>({ type: "idle" });
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -17,18 +17,22 @@ export function ContactForm() {
     const form = event.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
     try {
-      const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...data, startedAt: startedAt ?? Date.now() }) });
-      const result = await response.json() as { message?: string };
+      const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...data, startedAt }) });
+      const result = await response.json() as { validated?: boolean; message?: string };
       if (!response.ok) throw new Error(result.message || "Your message could not be sent. Please try again.");
-      form.reset();
-      setStatus({ type: "success", message: "Your enquiry has been accepted. Thank you—I’ll be in touch using the email you provided." });
+      if (!result.validated) throw new Error("Your message could not be validated. Please try again.");
+      form.submit();
     } catch (error) {
       setStatus({ type: "error", message: error instanceof Error ? error.message : "Your message could not be sent. Please try again." });
     }
   }
 
-  return <form className="contact-form" onSubmit={handleSubmit} onFocusCapture={() => setStartedAt((value) => value ?? Date.now())} noValidate={false}>
-    <div className="honeypot" aria-hidden="true"><label htmlFor="companyFax">Leave this field empty</label><input id="companyFax" name="companyFax" tabIndex={-1} autoComplete="off" /></div>
+  return <form className="contact-form" action={`https://formsubmit.co/${siteConfig.formSubmitEmail}`} method="POST" onSubmit={handleSubmit} noValidate={false}>
+    <input type="hidden" name="_next" value={`${siteConfig.siteUrl}/thank-you`} />
+    <input type="hidden" name="_subject" value="New free consultation request" />
+    <input type="hidden" name="_template" value="table" />
+    <input type="hidden" name="_url" value={`${siteConfig.siteUrl}/contact`} />
+    <div className="honeypot" aria-hidden="true"><label htmlFor="formHoney">Leave this field empty</label><input id="formHoney" name="_honey" tabIndex={-1} autoComplete="off" /></div>
     <div className="form-grid">
       <div className="field"><label htmlFor="name">Name <span aria-hidden="true">*</span></label><input id="name" name="name" required autoComplete="name" maxLength={100} /></div>
       <div className="field"><label htmlFor="email">Email <span aria-hidden="true">*</span></label><input id="email" name="email" type="email" required autoComplete="email" maxLength={200} /></div>
@@ -40,7 +44,6 @@ export function ContactForm() {
     <p className="privacy-note">Your information will only be used to respond to your enquiry and discuss the services you requested. It will not be added to a marketing list without your consent.</p>
     <button className="button submit-button" type="submit" disabled={status.type === "sending"}>{status.type === "sending" ? <><LoaderCircle className="spin" /> Sending securely…</> : <>Send My Enquiry <Send size={18} /></>}</button>
     <div className={`form-status ${status.type}`} role="status" aria-live="polite">
-      {status.type === "success" && <><CheckCircle2 /> <span>{status.message}</span></>}
       {status.type === "error" && <><AlertCircle /> <span>{status.message}{isConfigured(siteConfig.email) && <> You can also email <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>.</>}</span></>}
     </div>
   </form>;

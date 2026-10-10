@@ -64,15 +64,15 @@ The article automatically appears in search, category filters, related content, 
 
 ## Configure contact email delivery
 
-The form submits to `app/api/contact/route.ts`, which performs server-side schema validation, honeypot filtering, timing checks, and basic per-address throttling before requesting delivery through FormSubmit. A success state appears only after FormSubmit returns an accepted response.
+The form first submits to `app/api/contact/route.ts` for server-side schema validation, honeypot filtering, timing checks, and basic per-address throttling. After validation, the browser submits the enquiry through FormSubmit's supported HTML form flow with its spam protection enabled. FormSubmit redirects accepted submissions to `/thank-you`; the website never displays a success state merely because validation passed.
 
 The recipient defaults to the public `email` value in `lib/site-config.ts`. You can optionally override it for a particular environment:
 
 ```text
-FORM_SUBMIT_EMAIL=reeongurung36@gmail.com
+NEXT_PUBLIC_FORM_SUBMIT_EMAIL=reeongurung36@gmail.com
 ```
 
-FormSubmit requires one-time recipient confirmation. The first submission triggers an activation email to the recipient address; open that message and confirm the form before relying on live delivery. FormSubmit does not require an API key for this setup. The configured public email also appears as the direct-email fallback when a submission fails.
+FormSubmit requires one-time recipient confirmation for each new form/domain. The first browser submission triggers an activation email to the recipient address. Open that message and confirm the form before relying on live delivery; check Spam or Promotions if it is not in the inbox. FormSubmit does not require an API key for this setup. The configured public email also appears as the direct-email fallback when validation fails.
 
 ## Deployment checklist
 
@@ -81,7 +81,7 @@ Before going public:
 1. Replace every bracketed placeholder in `lib/site-config.ts`.
 2. Add the profile photo and confirm its alt text is accurate.
 3. Update `siteUrl` if the production domain changes.
-4. Submit the form once and confirm the FormSubmit activation email.
+4. Submit the production form once, complete FormSubmit's anti-spam step, and confirm the activation email.
 5. Run `npm run build` and test the form with a real recipient.
 6. Review the privacy notice and operational privacy practices for your location.
 

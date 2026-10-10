@@ -5,6 +5,8 @@ export const siteConfig = {
   brandStatement: "Where AI, creativity, and strategy come together to build what’s next.",
   location: "[YOUR LOCATION / REMOTE]",
   email: "reeongurung36@gmail.com",
+  formSubmitEmail:
+    process.env.NEXT_PUBLIC_FORM_SUBMIT_EMAIL || "reeongurung36@gmail.com",
   phone: "[YOUR PHONE NUMBER, OPTIONAL]",
   bookingUrl: "[YOUR BOOKING LINK]",
   linkedin: "[YOUR LINKEDIN URL]",

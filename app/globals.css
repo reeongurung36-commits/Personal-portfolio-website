@@ -348,6 +348,14 @@ p { color: var(--ink-soft); font-family: var(--font-paladio), Palatino, Georgia,
 .form-status svg { width: 19px; }
 .form-status a { text-decoration: underline; }
 .honeypot { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+.thank-you-section { background: var(--cream); }
+.thank-you-card { display: grid; grid-template-columns: 72px 1fr; gap: 30px; align-items: start; padding: 48px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); box-shadow: 0 22px 55px rgba(90,68,54,.1); }
+.thank-you-card > svg { width: 58px; height: 58px; padding: 13px; border-radius: 50%; background: #e6ded3; color: var(--potting-soil); }
+.thank-you-card h2 { margin-bottom: 18px; font-size: clamp(2rem, 4vw, 3.4rem); }
+.thank-you-card .button-row { margin-top: 28px; }
+.thank-you-email { display: flex; align-items: center; gap: 9px; margin: 28px 0 0; color: var(--muted); font-size: .8rem; }
+.thank-you-email svg { width: 18px; }
+.thank-you-email a { color: var(--accent-dark); text-decoration: underline; }
 
 .site-footer { position: relative; padding: 82px 0 24px; border-top: 1px solid var(--line); background: linear-gradient(135deg, var(--cream) 0%, #f8eadc 58%, rgba(105,164,207,.26) 100%); overflow: hidden; }
 .site-footer::before { content: ""; position: absolute; inset: 0 0 auto; height: 9px; background: linear-gradient(90deg, var(--transparent-yellow) 0 20%, var(--sceptre-red) 20% 40%, var(--cerulean-blue) 40% 60%, var(--potting-soil) 60% 80%, var(--java-brown) 80% 100%); }
@@ -416,6 +424,7 @@ p { color: var(--ink-soft); font-family: var(--font-paladio), Palatino, Georgia,
   .profile-visual { width: min(560px, 100%); min-height: 600px; margin-inline: auto; }
   .hero-note { grid-template-columns: 1fr; gap: 8px; margin-top: 40px; }
   .split-heading, .intro-grid, .process-layout, .consultation-layout, .faq-layout, .about-grid, .why-grid, .plan-note-inner, .contact-grid { grid-template-columns: 1fr; }
+  .thank-you-card { grid-template-columns: 1fr; padding: 36px; }
   .split-heading { gap: 24px; }
   .challenge-grid { grid-template-columns: repeat(2, 1fr); }
   .challenge-card { min-height: 170px; }
