@@ -20,7 +20,9 @@ export const siteConfig = {
     pottingSoil: "#4C332B",
     javaBrown: "#352821",
   },
-  siteUrl: "https://ai-marketing-growth-20261009.amusedflute.chatgpt.site",
+  siteUrl:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://ai-marketing-growth-20261009.amusedflute.chatgpt.site",
   consultationOffer:
     "Book a free consultation where I’ll analyze your business, identify opportunities for growth, and create a customized digital marketing plan you can start implementing immediately.",
 } as const;

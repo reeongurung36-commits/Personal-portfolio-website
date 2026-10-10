@@ -1,6 +1,9 @@
 import assert from "node:assert/strict";
 
 process.env.FORM_SUBMIT_EMAIL = "owner@example.com";
+const expectedSiteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://ai-marketing-growth-20261009.amusedflute.chatgpt.site";
 
 const originalFetch = globalThis.fetch;
 let deliveryRequest;
@@ -40,8 +43,8 @@ assert.equal(accepted.status, 200);
 assert.equal((await accepted.json()).accepted, true);
 assert.equal(deliveryRequest.url, "https://formsubmit.co/ajax/owner%40example.com");
 assert.equal(deliveryRequest.init.headers.Accept, "application/json");
-assert.equal(deliveryRequest.init.headers.Origin, "https://ai-marketing-growth-20261009.amusedflute.chatgpt.site");
-assert.equal(deliveryRequest.init.headers.Referer, "https://ai-marketing-growth-20261009.amusedflute.chatgpt.site/contact");
+assert.equal(deliveryRequest.init.headers.Origin, expectedSiteUrl);
+assert.equal(deliveryRequest.init.headers.Referer, `${expectedSiteUrl}/contact`);
 const deliveredBody = JSON.parse(deliveryRequest.init.body);
 assert.equal(deliveredBody._replyto, "qa@example.com");
 assert.equal(deliveredBody["Business name"], "Test Business");
