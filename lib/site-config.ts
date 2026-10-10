@@ -4,7 +4,7 @@ export const siteConfig = {
   shortBrand: "REEON GURUNG",
   brandStatement: "Where AI, creativity, and strategy come together to build what’s next.",
   location: "[YOUR LOCATION / REMOTE]",
-  email: "[YOUR BUSINESS EMAIL]",
+  email: "reeongurung36@gmail.com",
   phone: "[YOUR PHONE NUMBER, OPTIONAL]",
   bookingUrl: "[YOUR BOOKING LINK]",
   linkedin: "[YOUR LINKEDIN URL]",

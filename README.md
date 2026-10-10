@@ -64,19 +64,15 @@ The article automatically appears in search, category filters, related content, 
 
 ## Configure contact email delivery
 
-The form submits to `app/api/contact/route.ts`, which performs server-side schema validation, honeypot filtering, timing checks, and basic per-address throttling before requesting delivery through Resend. A success state appears only after Resend accepts the request.
+The form submits to `app/api/contact/route.ts`, which performs server-side schema validation, honeypot filtering, timing checks, and basic per-address throttling before requesting delivery through FormSubmit. A success state appears only after FormSubmit returns an accepted response.
 
-Copy `.env.example` to `.env.local` for local development, then set:
+The recipient defaults to the public `email` value in `lib/site-config.ts`. You can optionally override it for a particular environment:
 
 ```text
-RESEND_API_KEY=re_your_api_key
-CONTACT_TO_EMAIL=you@example.com
-CONTACT_FROM_EMAIL=Website <enquiries@your-verified-domain.com>
+FORM_SUBMIT_EMAIL=reeongurung36@gmail.com
 ```
 
-`CONTACT_FROM_EMAIL` must use a sender/domain accepted by your Resend account. Keep the API key secret. If any value is missing, the server returns a clear configuration error; it never pretends the enquiry was sent. Add a real public `email` in `lib/site-config.ts` to provide visitors with a direct-email fallback.
-
-For the hosted Site, add the same three values as runtime environment variables, mark `RESEND_API_KEY` as secret, and redeploy.
+FormSubmit requires one-time recipient confirmation. The first submission triggers an activation email to the recipient address; open that message and confirm the form before relying on live delivery. FormSubmit does not require an API key for this setup. The configured public email also appears as the direct-email fallback when a submission fails.
 
 ## Deployment checklist
 
@@ -85,7 +81,7 @@ Before going public:
 1. Replace every bracketed placeholder in `lib/site-config.ts`.
 2. Add the profile photo and confirm its alt text is accurate.
 3. Update `siteUrl` if the production domain changes.
-4. Configure and test the three email environment variables.
+4. Submit the form once and confirm the FormSubmit activation email.
 5. Run `npm run build` and test the form with a real recipient.
 6. Review the privacy notice and operational privacy practices for your location.
 
