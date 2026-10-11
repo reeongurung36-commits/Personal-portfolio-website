@@ -334,6 +334,7 @@ p { color: var(--ink-soft); font-family: var(--font-paladio), Palatino, Georgia,
 .field label { color: var(--ink); font-size: .76rem; font-weight: 800; }
 .field label > span:not(.optional) { color: var(--accent-dark); }
 .optional { margin-left: 6px; color: var(--muted); font-size: .67rem; font-weight: 600; }
+.field-hint { color: var(--muted); font-size: .76rem; line-height: 1.4; }
 .field input, .field select, .field textarea { width: 100%; min-height: 50px; padding: 11px 13px; border: 1px solid #c0b3a6; border-radius: 9px; background: var(--white); color: var(--ink); outline: 0; }
 .field textarea { resize: vertical; }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--cerulean-blue); box-shadow: 0 0 0 3px rgba(105,164,207,.2); }

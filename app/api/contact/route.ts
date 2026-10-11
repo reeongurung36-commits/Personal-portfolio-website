@@ -4,7 +4,13 @@ const contactSchema = z.object({
   name: z.string().trim().min(2).max(100),
   email: z.string().trim().email().max(200),
   businessName: z.string().trim().min(2).max(140),
-  websiteUrl: z.union([z.literal(""), z.string().trim().url().max(300)]).optional(),
+  whatsappNumber: z.union([
+    z.literal(""),
+    z.string().trim().max(30).refine(
+      (value) => /^[+\d][\d\s().-]*$/.test(value) && value.replace(/\D/g, "").length >= 7 && value.replace(/\D/g, "").length <= 15,
+      "Please enter a valid WhatsApp number with country code.",
+    ),
+  ]).optional(),
   serviceInterest: z.string().trim().min(2).max(160),
   message: z.string().trim().min(20).max(3000),
   _honey: z.string().max(0).optional(),
