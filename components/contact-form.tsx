@@ -32,11 +32,7 @@ export function ContactForm() {
     <input type="hidden" name="_subject" value="New free consultation request" />
     <input type="hidden" name="_template" value="table" />
     <input type="hidden" name="_url" value={`${siteConfig.siteUrl}/contact`} />
-    <input
-      type="hidden"
-      name="_autoresponse"
-      value="Thank you for requesting a free consultation with Reeon Gurung. I have received your enquiry and will review the business goals and challenges you shared. I will reply to the email address you provided with the next step. In the meantime, you can explore more practical AI and digital marketing guidance on my website."
-    />
+    <input type="hidden" name="_captcha" value="false" />
     <div className="honeypot" aria-hidden="true"><label htmlFor="formHoney">Leave this field empty</label><input id="formHoney" name="_honey" tabIndex={-1} autoComplete="off" /></div>
     <div className="form-grid">
       <div className="field"><label htmlFor="name">Name <span aria-hidden="true">*</span></label><input id="name" name="name" required autoComplete="name" maxLength={100} /></div>

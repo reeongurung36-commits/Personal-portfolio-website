@@ -64,7 +64,7 @@ The article automatically appears in search, category filters, related content, 
 
 ## Configure contact email delivery
 
-The form first submits to `app/api/contact/route.ts` for server-side schema validation, honeypot filtering, timing checks, and basic per-address throttling. After validation, the browser submits the enquiry through FormSubmit's supported HTML form flow with its spam protection enabled. FormSubmit emails the enquiry to the configured recipient, sends the visitor a short confirmation message through `_autoresponse`, and redirects accepted submissions to `/thank-you`; the website never displays a success state merely because validation passed.
+The form first submits to `app/api/contact/route.ts` for server-side schema validation, honeypot filtering, timing checks, and basic per-address throttling. After validation, the browser submits the enquiry through FormSubmit's supported HTML form flow. The form disables FormSubmit's external CAPTCHA because spam checks already run on the site; this prevents visitors from being stranded on FormSubmit's intermediate page. FormSubmit emails the enquiry to the configured recipient and redirects accepted submissions to `/thank-you`; the website never displays a success state merely because validation passed.
 
 The recipient defaults to the public `email` value in `lib/site-config.ts`. You can optionally override it for a particular environment:
 
@@ -81,7 +81,7 @@ Before going public:
 1. Replace every bracketed placeholder in `lib/site-config.ts`.
 2. Add the profile photo and confirm its alt text is accurate.
 3. Update `siteUrl` if the production domain changes.
-4. Submit the production form once, complete FormSubmit's anti-spam step, and confirm the activation email.
+4. Submit the production form once and confirm FormSubmit's activation email.
 5. Run `npm run build` and test the form with a real recipient.
 6. Review the privacy notice and operational privacy practices for your location.
 

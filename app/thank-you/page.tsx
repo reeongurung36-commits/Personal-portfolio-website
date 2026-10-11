@@ -15,7 +15,7 @@ export default function ThankYouPage() {
     <PageHero
       eyebrow="Message received"
       title="Thank you—your consultation request is on its way."
-      intro="Your form has been accepted. I’ll review the details you shared and respond using the email address you provided. You should also receive a confirmation message in your inbox."
+      intro="Your form has been accepted. I’ll review the details you shared and respond using the email address you provided."
     />
     <section className="section thank-you-section">
       <div className="container narrow thank-you-card">
@@ -23,7 +23,7 @@ export default function ThankYouPage() {
         <div>
           <p className="eyebrow">What happens next</p>
           <h2>I’ll review your goals and prepare a useful next step.</h2>
-          <p>Please check your spam or promotions folder if the confirmation email does not appear shortly. You can continue exploring the services and practical marketing guides while you wait. If your enquiry is urgent, you can also contact me directly by email.</p>
+          <p>You can continue exploring the services and practical marketing guides while you wait. If your enquiry is urgent, you can also contact me directly by email.</p>
           <div className="button-row">
             <Link className="button" href="/services">Explore My Services <ArrowRight size={18} /></Link>
             <Link className="button button-secondary" href="/">Return Home</Link>
