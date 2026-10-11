@@ -64,7 +64,7 @@ The article automatically appears in search, category filters, related content, 
 
 ## Configure contact email delivery
 
-The form first submits to `app/api/contact/route.ts` for server-side schema validation, honeypot filtering, timing checks, and basic per-address throttling. After validation, the browser submits the enquiry through FormSubmit's supported HTML form flow with its spam protection enabled. FormSubmit redirects accepted submissions to `/thank-you`; the website never displays a success state merely because validation passed.
+The form first submits to `app/api/contact/route.ts` for server-side schema validation, honeypot filtering, timing checks, and basic per-address throttling. After validation, the browser submits the enquiry through FormSubmit's supported HTML form flow with its spam protection enabled. FormSubmit emails the enquiry to the configured recipient, sends the visitor a short confirmation message through `_autoresponse`, and redirects accepted submissions to `/thank-you`; the website never displays a success state merely because validation passed.
 
 The recipient defaults to the public `email` value in `lib/site-config.ts`. You can optionally override it for a particular environment:
 
